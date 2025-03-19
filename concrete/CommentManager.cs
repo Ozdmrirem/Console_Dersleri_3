@@ -20,37 +20,27 @@ namespace BusinessLayer.Concrete
 
         public void TDelete(Comment t)
         {
-            throw new NotImplementedException();
+            _CommentDal.Delete(t);
         }
 
         public Comment TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _CommentDal.GetByID(id);
         }
 
         public List<Comment> TGetList()
         {
-            throw new NotImplementedException();
+            return _CommentDal.GetList();
         }
 
         public void TInsert(Comment t)
         {
-            if (t.CommentContent != null && t.MemberID <= 1 && t.CommentStatus == false)
-            {
-                _CommentDal.Insert(t);
-            }
-            else
-            {
-                //hata mesajları
-                //content alanı boş geçilemez
-                //member id değeri yanlış
-                //status bilgisi true olamaz
-            }
+            _CommentDal.Insert(t);
         }
 
         public void TUpdate(Comment t)
         {
-            throw new NotImplementedException();
+            _CommentDal.Update(t);
         }
     }
 }

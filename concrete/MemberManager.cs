@@ -21,36 +21,27 @@ namespace BusinessLayer.Concrete
 
         public void TDelete(Member t)
         {
-            throw new NotImplementedException();
+            _memberDal.Delete(t);
         }
 
         public Member TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _memberDal.GetByID(id);
         }
 
         public List<Member> TGetList()
         {
-            throw new NotImplementedException();
+            return _memberDal.GetList();
         }
 
         public void TInsert(Member t)
         {
-            if(t.MemberName.Length>=5 && t.MemberName.Length<=20 &&
-                t.MemberSurname.Length<=30 && t.MemberSurname.StartsWith("a") && 
-                t.MemberID >= 8)
-            {
-                _memberDal.Insert(t);
-            }
-            else
-            {
-                //hata mesajları
-            }
+            _memberDal.Insert(t);
         }
 
         public void TUpdate(Member t)
         {
-            throw new NotImplementedException();
+            _memberDal.Update(t);
         }
     }
 }
