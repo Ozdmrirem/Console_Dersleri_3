@@ -1,0 +1,2518 @@
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  BÖLÜM 1 : GİRİŞ  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+1)  Visual Studio Kurulumu 
+2)  SQL Kurulumu
+
+<<<<<<<<<<<<<<<<<<<<<<<  BÖLÜM 2 : TEMEL YAZDIRMA KOMUTLARI VE DEĞİŞKENLER  >>>>>>>>>>>>>>>>>>>>>>>>>
+
+3)  GİRİŞ
+---------------------------------------------------------------------------------------------------------------------------------
+
+Temel konu başlıkları ; Yazdırma komutları, Değişkenler, Karar Yapıları, Döngüler, Diziler
+Metotlar, Sınıflar
+Veri tabanı...
+
+4)  CONSOLE EKRANINA GENEL BAKIŞ
+---------------------------------------------------------------------------------------------------------------------------------
+
+Visual Studio --->  Create a new Project --->  C#  -  All Platforms  -  Console  --->  ConsoleApp(.NET Framework)  --->  Next
+
+Project Name : Console_Dersleri 
+Create
+
+
+5)  CONSOLE WRITE VE WRITELINE KOMUTLARI 
+---------------------------------------------------------------------------------------------------------------------------------
+
+Console.Write("Hello World");
+Console.Write("Benim adım İrem Özdemir");
+Console ReadLine();   ---> Ekranı enter tuşuna basana kadar tutar.
+Hello WorldBenim adım İrem Özdemir  ---> Ekranda bu şekilde yan yana yazdırdı. 
+
+Alt alta yazdırmak için;
+
+Console.WriteLine("Kişi tanıtım kartı");
+Console.WriteLine("Adınız: İrem");
+Console.WriteLine("Soyadınız: Özdemir");
+Console.WriteLine("Mesleğiniz: Öğrenci");
+                      
+Console.ReadLine();
+
+6)  STRING DEĞİŞKENLER
+---------------------------------------------------------------------------------------------------------------------------------
+
+Değişkenler
+Bellek --> Ram Geçici Bellek
+Sayısal, Alfabetik, Lojik Veriler, Karakter...
+
+String
+Değişken_Türü  Değişken_ismi
+
+            string city;
+            city="Dublin";
+            Console.Write(city);
+            Console.ReadLine();
+
+( Dublin ) yazdırdı.
+
+            string capital, country;
+            capital = "Ankara";
+            country = "Türkiye";
+            Console.Write(capital + " " + country);
+
+            Console.ReadLine(); 
+
+( Ankara Türkiye ) yazdırdı.
+ 
+İki kelimeden oluşan değişken ismi kullanılıyorsa buna camel Case denir. İkinci kelimenin baş harfi büyük yazılmak zorunda.
+
+            string nameSurname;
+            nameSurname = "İrem Özdemir";
+            Console.Write(nameSurname);
+
+            Console.ReadLine();
+
+( İrem Özdemir ) yazdırdı.
+
+            string job;
+            job = "Software Engineer";
+            Console.Write("Meslek:" + job);
+
+            Console.ReadLine();
+
+( Meslek: Software Engineer ) yazdırdı.
+
+
+7)  INT DEĞİŞKENLER
+---------------------------------------------------------------------------------------------------------------------------------
+
+            int number;
+            number = 20;
+            Console.Write(number);
+
+            Console.ReadLine();
+
+( 20 ) yazdırdı.
+
+
+= Atama
++ - * /
+
+            int n1, n2, total;
+            n1 = 40;
+            n2 = 85;
+            total = n1 + n2;
+            Console.Write(total);
+
+            Console.ReadLine();
+
+( 125 ) yazdırdı.
+
+
+            int number1, number2, addition, extraction, multiplication, division;
+            number1 = 20;
+            number2 = 5;
+            addition = number1 + number2;
+            extraction = number1 - number2;
+            multiplication = number1 * number2;
+            division = number1 / number2;
+            Console.WriteLine("Toplam: " + addition);
+            Console.WriteLine("Fark: " + extraction);
+            Console.WriteLine("Çarpım: " + multiplication);
+            Console.WriteLine("Bölüm: " + division);
+
+            Console.ReadLine();
+
+( Toplam: 25
+   Fark: 15
+   Çarpım: 100
+   Bölüm: 4 )  yazdırdı.
+
+8)  KLAVYEDEN VERİ GİRİŞLERİ
+---------------------------------------------------------------------------------------------------------------------------------
+
+            Console.Write("Lütfen adınızı yazınız: ");
+            string ad;
+            ad = Console.ReadLine();
+
+            Console.Write("Hoş geldiniz" + ad);
+
+            Console.ReadLine();
+
+Lütfen adınızı yazınız: irem   (Adımızı yazınca alttaki cümle geldi.)
+Hoş geldiniz irem
+
+----------------------------------------------------------------------------------------------------------------------------------
+            string ulke, sehir;
+            Console.Write("Ülke: ");
+            ulke = Console.ReadLine();
+            Console.Write("Şehir: ");
+            sehir = Console.ReadLine();
+
+            Console.Write(ulke + " " + sehir);
+
+            Console.ReadLine();
+
+Ülke: Türkiye
+Şehir: İstanbul
+Türkiye İstanbul   yazdırdı.
+
+9) KLAVYEDEN SAYISAL VERİ GİRİŞLERİ
+---------------------------------------------------------------------------------------------------------------------------------
+
+//Convert Cast
+//Convert.DönüşümTürü(Dönüştürelecek_Değer);
+
+int sayi;
+Console.Write("Sayıyı girin: ");
+sayi = Convert.ToInt32(Console.ReadLine());
+
+Console.Write(sayi);
+Console.ReadLine();
+
+Sayıyı girin: 25
+25   yazdırdı.
+
+----------------------------------------------------------------------------------------------------------------------------------
+            int s1;
+            Console.Write("Sayıyı girin: ");
+            s1 = Convert.ToInt16(Console.ReadLine());
+
+            Console.Write(s1);
+            
+            Console.ReadLine();
+
+Burada sayıyı girin ekranına 32700den büyük değer girersek Console kapanır ve hata verir.
+ToInt32 kullanmamız gerekir.
+----------------------------------------------------------------------------------------------------------------------------------
+
+            int s1, s2, sonuc;
+            Console.Write("Sayı 1: ");
+            s1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Sayı 2: ");
+            s2 = Convert.ToInt32(Console.ReadLine());
+            sonuc = s1 + s2;
+
+            Console.Write("Toplam: " + sonuc);
+
+            Console.ReadLine();
+        
+
+Sayı 1: 65
+Sayı 2: 55
+Toplam: 120
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+            int kisa, uzun, alan, cevre;
+            Console.Write("Kısa Kenar: ");
+            kisa = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Uzun Kenar: ");
+            uzun = Convert.ToInt32(Console.ReadLine());
+            alan = kisa * uzun;
+            cevre = 2 * (kisa + uzun);
+            Console.Write("Alan: " + alan + " Çevre: " + cevre);
+
+            Console.ReadLine();
+
+
+Kısa Kenar: 10
+Uzun Kenar: 20
+Alan: 200 Çevre: 60
+
+
+10) DOUBLE DEĞİŞKENLER 
+---------------------------------------------------------------------------------------------------------------------------------
+
+Ondalık sayılarla işlem yapmak için kullanılır.
+Kod kısmında ondalıklı kısım nokta ile ayrılıyor ama ekranda virgül ile gösteriliyor.
+
+            double sayi = 4.008969;
+            Console.Write(sayi);
+
+
+            Console.ReadLine();
+
+( 4,008969 ) yazdırdı.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+double s1, s2, s3;
+double ort ;
+Console.Write("Sınav1:");
+s1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Sınav2:");
+s2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Sınav3:");
+s3 = Convert.ToInt32(Console.ReadLine());
+ort = (s1 + s2 + s3) / 3;
+Console.Write("Ortalama:" + ort);
+
+Console.ReadLine();
+
+Sınav1:20
+Sınav2:30
+Sınav3:11
+Ortalama:20,3333333333333   yazdırdı.
+
+----------------------------------------------------------------------------------------------------------------------------------
+            Console.Write("Sayıyı giriniz:");
+            double sayi = Convert.ToDouble(Console.ReadLine());
+            Console.Write(sayi);
+
+            Console.ReadLine();
+
+Sayıyı giriniz:14.22
+1422
+
+Bunu önlemek için araya virgül koymalıyız ;
+Sayıyı giriniz:14,22
+14,22
+
+Yani Kod kısmında nokta, Console ekranında virgül ile işlem yapmalıyız.
+
+11) CHAR DEĞİŞKENLER
+---------------------------------------------------------------------------------------------------------------------------------
+
+CHAR değişkenler, programlamada tek bir karakteri saklamak için kullanılan veri tipleridir. Bu karakterler harfler, sayılar, semboller veya boşluk gibi herhangi bir karakter olabilir. CHAR, genellikle tek tırnak (' ') içinde yazılır.
+
+            char sehir;
+            sehir = 'a';
+            Console.Write(sehir);
+
+            Console.ReadLine();
+
+( a ) yazdırdı.
+
+----------------------------------------------------------------------------------------------------------------------------------
+            char karakter;
+            Console.Write("Karakter girişi yapınız:");
+            karakter = Convert.ToChar(Console.ReadLine());
+            Console.Write(karakter);
+
+            Console.ReadLine();
+
+Karakter girişi yapınız:e
+e   yazdırdı.
+
+
+<<<<<<<<<<<<<<<<<<<<<<<  BÖLÜM 3 : KARAR YAPILARI  >>>>>>>>>>>>>>>>>>>>>>>>>
+
+12) KARAR YAPILARI
+---------------------------------------------------------------------------------------------------------------------------------
+            if else
+            
+            if 
+            the weather is rainy
+            you take your umbrella
+            else
+            you dont take your umbrella
+
+            string sifre;
+            Console.Write("Şifreyi giriniz:");
+            sifre = Console.ReadLine();
+            if (sifre=="abcd")
+            {
+                Console.Write("Şifre başarılı, sisteme hoş geldiniz.");
+            }
+            else
+            {
+                Console.Write("Şifre hatalı, lütfen tekrar deneyiniz.");
+            }
+            
+                Console.ReadLine();
+
+Şifreyi giriniz:abcd
+Şifre başarılı, sisteme hoş geldiniz.
+
+Şifreyi giriniz:abc
+Şifre hatalı, lütfen tekrar deneyiniz.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+            int s1, s2, ort;
+            string durum;
+            Console.Write("Sınav1:");
+            s1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Sınav2:");
+            s2 = Convert.ToInt32(Console.ReadLine());
+            ort = (s1 + s2) / 2;
+            if(ort>=50)
+            {
+                durum = "Geçti";
+            }
+            else
+            {
+                durum = "Kaldı";
+            }
+            Console.Write("Öğrenci Ortalaması:" + ort + " Öğrenci Sınav Durumu:" + durum);
+
+                Console.ReadLine();
+
+Sınav1:55
+Sınav2:53
+Öğrenci Ortalaması:54 Öğrenci Sınav Durumu:Geçti
+
+13)  OPERATÖRLER
+---------------------------------------------------------------------------------------------------------------------------------
+            Operatörler
+
+            == eşit mi
+            <= küçük veya eşit mi
+            >= büyük veya eşit mi
+            !=eşit değilse
+            && ve
+            || veya
+            = atama
+            + - * / aritmetik operatörler
+            % mod   (10%3 ==> 1)
+
+
+            string kullanici, sifre;
+            Console.Write("Kullanıcı Adı:");
+            kullanici = Console.ReadLine();
+            Console.Write("Şifre:");
+            sifre = Console.ReadLine();
+            if(kullanici=="admin" && sifre=="1234")
+            {
+                Console.Write("Giriş Başarılı");
+            }
+            else
+            {
+                Console.Write("Giriş Hatalı");
+            }
+
+                Console.ReadLine();
+
+Kullanıcı Adı:admin
+Şifre:1234
+Giriş Başarılı
+
+Kullanıcı Adı:admin
+Şifre:12345
+Giriş Hatalı
+----------------------------------------------------------------------------------------------------------------------------------
+string anahtar;
+Console.Write("Anahtar kelimeyi girin:");
+anahtar = Console.ReadLine();
+if(anahtar!="muğla" || anahtar != "istanbul" || anahtar != "balıkesir")
+{
+    Console.Write("İşlem başarılı");
+}
+else
+{
+    Console.Write("İşlem hatalı");
+}
+    Console.ReadLine();
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+            int sonuc = 25 % 4;
+            Console.Write(sonuc);
+
+( 1 ) yazdırdı.
+
+
+14)  KARAR YAPILARI ÖRNEKLERİ
+---------------------------------------------------------------------------------------------------------------------------------
+            int s1, s2, s3;
+            int ortalama;
+            string durum;
+
+            Console.Write("Lütfen Sınav1 Notunu Girin:");
+            s1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Lütfen Sınav2 Notunu Girin:");
+            s2 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Lütfen Sınav3 Notunu Girin:");
+            s3 = Convert.ToInt32(Console.ReadLine());
+
+            ortalama = (s1 + s2 + s3) / 3;
+            if (ortalama <= 49)
+            {
+                durum = "Kötü";
+                Console.Write(durum);
+            }
+            if (ortalama > 49 && ortalama <= 70)
+            {
+                durum = "Orta";
+                Console.Write(durum);
+            }
+            if (ortalama > 70)
+            {
+                durum = "İyi";
+                Console.Write(durum);
+            }
+
+            Console.ReadLine();
+
+Lütfen Sınav1 Notunu Girin:50
+Lütfen Sınav2 Notunu Girin:60
+Lütfen Sınav3 Notunu Girin:70
+Orta
+
+Lütfen Sınav1 Notunu Girin:20
+Lütfen Sınav2 Notunu Girin:30
+Lütfen Sınav3 Notunu Girin:40
+Kötü
+
+Lütfen Sınav1 Notunu Girin:70
+Lütfen Sınav2 Notunu Girin:80
+Lütfen Sınav3 Notunu Girin:90
+İyi
+
+----------------------------------------------------------------------------------------------------------------------------------
+            Console.Write("Sayıyı giriniz:");
+            int sayi = Convert.ToInt32(Console.ReadLine());
+            if (sayi % 2 == 0)
+            {
+                Console.Write("Çift sayı");
+            }
+            else
+            {
+                Console.Write("Tek sayı");
+            }
+
+                Console.ReadLine();
+
+
+Sayıyı giriniz:18
+Çift sayı
+
+Sayıyı giriniz:5
+Tek sayı
+
+
+15)  SWITCH CASE 
+---------------------------------------------------------------------------------------------------------------------------------
+switch-case, programlamada bir koşul yapısıdır ve bir değişkenin alabileceği farklı değerlere göre farklı kod bloklarını çalıştırmayı sağlar. if-else yapısına benzer şekilde çalışır, ancak bir değişkenin çok sayıda farklı değeri kontrol edilmek istendiğinde daha okunabilir ve düzenli bir yapı sunar. Özellikle bir değişkenin alabileceği sınırlı sayıda olası değere göre farklı işlemler yapılacaksa kullanılır.
+
+
+            string fruit;
+            Console.Write("Enter your fruit name:");
+            fruit = Console.ReadLine();
+            switch(fruit)
+            {
+                case "apple":Console.Write("elma");break;
+                case "orange":Console.Write("portakal");break;
+                case "strawberry":Console.Write("çilek");break;
+                case "melon":Console.Write("kavun");break;
+                default:Console.Write("bulunamadı");break;
+            }
+
+                Console.ReadLine();
+
+
+Enter your fruit name:apple
+elma
+
+Enter your fruit name: banana
+bulunamadı
+
+----------------------------------------------------------------------------------------------------------------------------------
+            int s1, s2, s3, ort;
+            Console.Write("Sınav1:");
+            s1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Sınav2:");
+            s2 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Sınav3:");
+            s3 = Convert.ToInt32(Console.ReadLine());
+            ort = (s1 + s2 + s3) / 3;
+            switch(ort)
+            {
+                case 50:Console.Write("Kötü");break;
+                case 75:Console.Write("Orta");break;
+                case 100:Console.Write("İyi");break;
+            }
+              
+                Console.ReadLine();
+
+Sınav1:100
+Sınav2:110
+Sınav3:90
+İyi
+
+<<<<<<<<<<<<<<<<<<<<<<<  BÖLÜM 4 :  DÖNGÜLER  >>>>>>>>>>>>>>>>>>>>>>>>>
+
+16)  FOR DÖNGÜSÜ
+---------------------------------------------------------------------------------------------------------------------------------
+
+Döngüler
+For - While -  Do While -  Foreach
+
+++ operatörü değeri 1 arttırır.
+
+For 
+1:Başlangıç 2:Bitiş 3:Artış-Azalış Miktarı
+
+Şimdi ekrana 10 kere Merhaba Dünya yazdıran komutu yazalım;
+
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine("Merhaba Dünya");
+            }
+            
+            Console.ReadLine()
+
+
+Merhaba Dünya
+Merhaba Dünya
+Merhaba Dünya
+Merhaba Dünya
+Merhaba Dünya
+Merhaba Dünya
+Merhaba Dünya
+Merhaba Dünya
+Merhaba Dünya
+Merhaba Dünya
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+            for(int i = 1; i <= 5; i++)
+            {
+                Console.WriteLine(i);
+            }
+
+            Console.ReadLine();
+
+1
+2
+3
+4
+5
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+            for(int i = 1; i<21; i++)
+            {    
+                    Console.WriteLine(i);   
+            }
+
+1
+2
+3
+...
+19
+20
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+            for (int i = 1; i < 21; i+=3)
+            {
+                Console.WriteLine(i);
+            }
+
+1
+4
+7
+10
+13
+16
+19
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+            for(int i = 1; i <= 24; i+=7)
+            {
+                Console.WriteLine(i);
+            }
+
+            Console.ReadLine();
+
+1
+8
+15
+22
+
+
+17)  DÖNGÜLERDE KARAR YAPISI KULLANIMI
+---------------------------------------------------------------------------------------------------------------------------------
+
+            for(int i = 1; i <= 20; i++)
+            {
+                if(i % 2 == 0)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+
+            Console.ReadLine();
+
+2
+4
+6
+….
+16
+18
+20
+----------------------------------------------------------------------------------------------------------------------------------
+
+            for(int i = 1; i <= 50; i++)
+            {
+                if (i % 3 == 0 && i % 5 == 0)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+
+            Console.ReadLine();
+
+15
+30
+45
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+            int sonuc = 1;
+            for(int i = 1; i <= 5; i++)
+            {
+                sonuc = sonuc * i;
+            }
+            Console.WriteLine(sonuc);
+
+
+            Console.ReadLine();
+
+( 120 ) yazdırdı.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+            int toplam = 0;
+            for (int i = 1; i <= 10; i++)
+            {
+                toplam = toplam + i;
+            }
+            Console.WriteLine(toplam);
+
+            Console.ReadLine();
+
+( 55 ) yazdırdı.
+
+----------------------------------------------------------------------------------------------------------------------------------
+ÖDEV: 1 - 100 arasında 7ye tam bölünen sayıları toplayan kodu yazalım ;
+
+            int toplam = 0;
+            for(int i = 1; i <= 100; i++)
+            {
+                if (i % 7 == 0)
+                {
+                    toplam = toplam + i;
+                }
+            }
+            Console.WriteLine(toplam);
+
+            Console.ReadLine();
+
+( 735 ) yazdırdı.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+18)  WHILE DÖNGÜSÜ
+---------------------------------------------------------------------------------------------------------------------------------
+            int sayi = 1;
+            while(sayi <= 10)
+            {
+                Console.WriteLine(sayi + " Merhaba");
+                sayi++;
+            }
+
+            Console.ReadLine();
+
+1 Merhaba
+2 Merhaba
+….
+9 Merhaba
+10 Merhaba
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+            int sayi = 1;
+            while (sayi <= 50)
+            {
+                if (sayi % 8 == 0)
+                {
+                    Console.WriteLine(sayi);
+                }
+                sayi++;
+            }
+
+            Console.ReadLine();
+
+8
+16
+24
+32
+40
+48
+
+<<<<<<<<<<<<<<<<<<<<<<<  BÖLÜM 5 : DİZİLER  >>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+19)  DİZİLER
+---------------------------------------------------------------------------------------------------------------------------------
+//[]
+//Index--dizinin sırası --> 0
+
+string[] sehirler = { "Adana", "Londra", "Kiew", "Milano", "Paris" };
+
+/*
+dizimizin adı sehirler
+dizimizin eleman sayısı 5
+dizimizin 0. indexinde bulunan eleman Adana
+dizimizin 1. indexinde bulunan eleman Londra
+dizimizin son eleman index değeri 4
+ */
+
+Console.Write(sehirler[3]);
+
+Console.ReadLine();
+
+( Milano ) yazdırdı.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+            int[] sinav_notlari = { 48, 98, 63, 25, 78, 14 };
+            Console.Write(sinav_notlari[4]);
+
+            Console.ReadLine();
+
+( 78 ) yazdırdı.
+
+
+
+20)  FOREACH DÖNGÜSÜ
+---------------------------------------------------------------------------------------------------------------------------------
+Foreach
+Değişken_Türü  Değişken_ismi  in  Dizi_Adı
+
+            string[] sehirler = { "İstanbul", "Ankara", "Mardin", "Kütahya", "Rize","Eskişehir" };
+            foreach (string x in sehirler)
+            {
+                Console.WriteLine(x);
+            }
+
+            Console.ReadLine();
+
+İstanbul
+Ankara
+Mardin
+Kütahya
+Rize
+Eskişehir
+
+----------------------------------------------------------------------------------------------------------------------------------
+            int[] sayilar = { 47, 36, 89, 41, 236, 854, 744 };
+            foreach (int x in sayilar)
+            {
+                if(x % 3 == 0)
+                {
+                    Console.WriteLine(x);
+                }               
+            }
+
+36
+744
+----------------------------------------------------------------------------------------------------------------------------------
+
+ÖDEV: klavyeden girilen 4 basamaklı bir sayıyı basamaklarına ayırıp basamaklarını toplayan kodu yazınız.
+
+            int sayi;
+            Console.Write("Lütfen 4 basamaklı bir sayı giriniz: ");
+            sayi = Convert.ToInt32(Console.ReadLine());
+            int a, b, c, d, toplam;
+            toplam = 0;
+            a = sayi / 1000;
+            sayi = sayi % 1000;
+            b = sayi / 100;
+            sayi = sayi % 100;
+            c = sayi / 10;
+            d = sayi % 10;
+            int[] basamaklar = { a, b, c, d };
+            foreach (int x in basamaklar)
+            {
+                toplam = toplam + x;
+            }
+            Console.WriteLine(toplam);
+
+            Console.ReadLine();
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<  BÖLÜM 6 : METOTLAR  >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+21)  METOTLAR
+---------------------------------------------------------------------------------------------------------------------------------
+Console_Dersleri ---> Add --->  New Item ---> Text File - adı KaynakKodlar1 olsun.
+
+//Metotlar
+
+//Geriye Değer Döndüren Metotlar
+//Geriye Değer Döndürmeyen Metotlar
+
+//Kod tekrarının önüne geçmek için metotlar kullanılır.
+
+//void metot_isim ()
+//{
+//işlemler
+//}
+
+void Yazdir()
+{
+    Console.WriteLine("Hoşgeldiniz");
+    Console.WriteLine("Ne kadar güzel bir gün");
+}
+
+Console.WriteLine("Merhaba İrem Hanım");
+Yazdir();
+
+Console.ReadLine();
+
+
+Merhaba İrem Hanım
+Hoşgeldiniz
+Ne kadar güzel bir gün
+
+----------------------------------------------------------------------------------------------------------------------------------
+            void Yazdir()
+            {
+                Console.WriteLine("Hoşgeldiniz");
+                Console.WriteLine("Ne kadar güzel bir gün");
+                Console.WriteLine("Selamlar");
+                Console.WriteLine("Bonjour");
+                Console.WriteLine("Cin Dobre");
+                Console.WriteLine("Good Morning");
+            }
+
+            Console.WriteLine("Merhaba Emre Bey");
+            Yazdir();
+            Yazdir();
+            Yazdir();
+
+            Console.ReadLine();
+
+
+Merhaba Emre Bey
+Hoşgeldiniz
+Ne kadar güzel bir gün
+Selamlar
+Bonjour
+Cin Dobre
+Good Morning
+Hoşgeldiniz
+Ne kadar güzel bir gün
+Selamlar
+Bonjour
+Cin Dobre
+Good Morning
+Hoşgeldiniz
+Ne kadar güzel bir gün
+Selamlar
+Bonjour
+Cin Dobre
+Good Morning
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+            void topla()
+            { 
+                int s1 = 14;
+                int s2 = 28;
+                int s3 = s1 + s2;
+                Console.WriteLine("Toplam: " + s3);
+            }
+            topla();
+
+            Console.ReadLine();
+
+
+Toplam: 42
+
+
+22)  METOTLARDA PARAMETRE KULLANIMI
+---------------------------------------------------------------------------------------------------------------------------------
+
+            void yazdir(string p)
+            {
+                Console.Write(p);
+            }
+            yazdir("merhaba");
+
+            Console.ReadLine();
+
+( merhaba ) yazdırdı.
+
+---------------------------------------------------------------------------------------------------------------------------------
+            void kisibilgi(string ad, string soyad, string sehir)
+            {
+                Console.WriteLine("Ad: " + ad);
+                Console.WriteLine("Soyad: " + soyad);
+                Console.WriteLine("Şehir: " + sehir);
+            }
+
+            kisibilgi("Emre", "Hanoğlu", "İstanbul");
+
+            Console.ReadLine();
+
+
+Ad: Emre
+Soyad: Hanoğlu
+Şehir: İstanbul            yazdırdı.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+            void topla(int s1, int s2)
+            {
+                int sonuc = s1 + s2;
+                Console.WriteLine(sonuc);
+            }
+            topla(74, 99);
+
+            Console.ReadLine();
+
+( 173 ) yazdırdı.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+            void ogrbilgi(string ad,string soyad,int s1, int s2,int s3)
+            {
+                Console.WriteLine("Ad: " + ad);
+                Console.WriteLine("Soyad: " + soyad);
+                int ortalama = (s1 + s2 + s3)/3;
+                Console.WriteLine("Ortalama: " + ortalama);
+            }
+            ogrbilgi("İrem","Özdemir", 85, 90, 95);
+
+            Console.ReadLine();
+
+Ad: İrem
+Soyad: Özdemir
+Ortalama: 90
+
+
+23)  GERİYE DEĞER DÖNDÜREN METOTLAR
+---------------------------------------------------------------------------------------------------------------------------------
+            int topla()
+            {
+                int s1 = 47;
+                int s2 = 35;
+                int sonuc = s1 + s2;
+                return sonuc;
+            }
+            Console.WriteLine(topla());
+
+            Console.ReadLine();
+
+( 82 ) yazdırdı.
+ 
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+            string bilgiler(string p1, string p2)
+            {
+                return p1 + " " + p2;
+            }
+            Console.WriteLine(bilgiler("Ali", "Çınar"));
+
+            Console.ReadLine(); 
+
+( Ali Çınar )
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+            int topla(int s1, int s2)
+            {
+                int sonuc = s1 + s2;
+                return sonuc;
+            }
+            Console.Write("Sayı 1: ");
+            int sayi1=Convert.ToInt32(Console.ReadLine());
+            Console.Write("Sayı 2: ");
+            int sayi2 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Sonuç:" + topla(sayi1, sayi2));
+
+            Console.ReadLine(); 
+
+Sayı 1: 11
+Sayı 2: 55
+Sonuç:66
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<  BÖLÜM 7 : SINIF YAPISI  >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+24)  SINIFLAR
+
+Console_Dersleri ---> Add ---> Class ---> Country 
+
+Country.cs
+
+namespace Console_Dersleri
+{
+    class Country
+    {
+        public int CountryID { get; set; }
+        public string Name { get; set; }
+        public string Capital { get; set; }
+    }
+}
+
+
+
+
+Program.cs
+
+            //sınıflar
+
+            //Sınıf_Adı nesne_adı= new Sınıf_Adı();
+
+            Country c= new Country();
+            c.CountryID = 1;
+            c.Name = "Ukrayna";
+            c.Capital = "Kiev";
+
+            Console.WriteLine(c.CountryID);
+            Console.WriteLine(c.Name);
+            Console.WriteLine(c.Capital);
+
+            Console.ReadLine(); 
+
+1
+Ukrayna
+Kiev
+
+
+
+
+namespace Console_Dersleri
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //sınıflar
+
+            //Sınıf_Adı nesne_adı= new Sınıf_Adı();
+
+            Country c= new Country();
+            c.CountryID = 1;
+            c.Name = "Ukrayna";
+            c.Capital = "Kiev";
+
+            Console.WriteLine(c.CountryID);
+            Console.WriteLine(c.Name);
+            Console.WriteLine(c.Capital);
+
+            c.CountryID = 2;
+            c.Name = "Almanya";
+            c.Capital = "Berlin";
+
+            Console.WriteLine(c.CountryID);
+            Console.WriteLine(c.Name);
+            Console.WriteLine(c.Capital);
+
+            Console.ReadLine(); 
+        }
+    }
+}
+
+Böyle uzun uzun yazmak yerine aynı olan kod satırını metota alalım:
+
+            Country c= new Country();
+            
+            void countryDetails()
+            {
+                Console.WriteLine(c.CountryID);
+                Console.WriteLine(c.Name);
+                Console.WriteLine(c.Capital);
+                Console.WriteLine("-------------------");
+            }
+
+            c.CountryID = 1;
+            c.Name = "Ukrayna";
+            c.Capital = "Kiev";
+
+            countryDetails();
+
+            c.CountryID = 2;
+            c.Name = "Almanya";
+            c.Capital = "Berlin";
+
+            countryDetails();
+
+            c.CountryID = 3;
+            c.Name = "Fransa";
+            c.Capital = "Paris";
+
+            countryDetails();
+
+            Console.ReadLine(); 
+
+
+
+1
+Ukrayna
+Kiev
+-------------------
+2
+Almanya
+Berlin
+-------------------
+3
+Fransa
+Paris
+-------------------
+
+25)  SINIFLAR VE METOTLAR
+
+Console_Dersleri ---> Add ---> Class ---> Visitor
+
+Visitor.cs
+
+namespace Console_Dersleri
+{
+    class Visitor
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string City { get; set; }
+
+        public void mesaj(string p)
+        { 
+            Console.WriteLine(p);
+        }
+    }
+}
+
+
+
+Program.cs
+
+
+Visitor v = new Visitor();
+           
+void bilgiler()
+{
+    Console.WriteLine(v.ID);
+    Console.WriteLine(v.Name);
+    Console.WriteLine(v.City);
+}
+
+
+v.ID = 1;
+v.Name = "Ali";
+v.City = "Ankara";
+bilgiler();
+v.mesaj("Merhaba");
+Console.WriteLine();
+
+v.ID = 2;
+v.Name = "George";
+v.City = "Los Angeles";
+bilgiler();
+v.mesaj("Hello");
+
+
+Console.ReadLine(); 
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<  BÖLÜM 8 : METOTLAR  >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+26)  VERİ TABANI VE TABLOLAR 
+
+SQL e girdik. 
+Database --> New Database --> DbVisit --> Tables --> New Tables
+
+
+
+27)  SQL VERİ TÜRLERİ
+
+--bit 0 ve 1 değerleri için
+--char(10) sabit uzunluklu veriler için kullanılır.
+--date
+--decimal(18,2)
+--int
+--n// latin alfabesi dışındaki karakterler için
+--varchar (değişken uzunluklu veriler için kullanılır.)
+
+--telefon, TC --> char
+--İsim --> varchar
+
+
+İki tablo oluşturduk.
+
+
+28)  SELECT SORGULARI
+
+DML --> Data Manipulation Language
+--Select
+--Insert
+--Update
+--Delete
+
+--Select listeleme işlemleri
+--Select * from Table_Name
+
+-- * Hepsini getirir.
+
+--select * from TblPerson
+--Select City from tblperson
+--Select Name,City from tblperson
+--Select * from TblCountry
+
+--Select * from TblCountry Where CountryName='Fransa'
+--Select * from TblCountry Where CountryCapital='Ankara'
+--Select * from TblCountry where CountryId>=3
+--Select * from TblCountry Where CountryId>2 and CountryCapital='Paris'
+--Select * from TblCountry Where CountryId<3 or CountryName='Makedonya'
+
+29)  INSERT SORGUSU
+
+--insert
+--insert into (column1,column2,...) values (d1,d2,d3,...)
+
+
+--insert into TblCountry (CountryName, CountryCapital) values ('Mısır','Kahire')
+--Select * from TblCountry 
+
+--insert into TblCountry(CountryName) values ('İtalya')
+
+--insert into TblPerson(Name,City) values ('Ahmet Sarı','Manisa')
+
+
+30)  DELETE VE UPDATE SORGULARI
+
+--Delete from tablo_adı where şart...
+--Delete from TblPerson where Id=6
+--Select * from TblPerson
+
+--Update TblPerson set name='Ahmet Sarılı',City='Artvin' where Id=4
+--select * from TblPerson
+
+--Update TblPerson set City='Sakarya' where Id=5 
+--select * from TblPerson
+
+
+31)  SQL'de İLİŞKİLER
+
+
+
+
+32)  COUNT - AVG - SUM KOMUTLARI
+
+--Select * from TblFlight
+
+--Select COUNT(*) from TblPerson
+
+--Select COUNT(*) from TblFlight where Price<850
+
+--Select SUM(capacity) from TblFlight   ----> Uçuş tablosundaki toplam kapasite sayısı nedir?
+
+--Select AVG(price) from TblFlight   ----> Uçuş tablosundaki ortalama fiyat nedir?  
+
+
+
+
+33)  ALT SORGULAR 
+
+--Select * from TblFlight where DepartureLocation=(Select  CountryId FROM TblCountry Where CountryName='Türkiye')
+
+--Update TblFlight set Price=Price+10 where ArrivalLocation=(select CountryId from TblCountry where CountryName='Fransa')
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<  BÖLÜM 9 : C# ile SQL İŞLEMLERİ  >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+34)  C# ile SQL İŞLEMLERİ GİRİŞ
+
+Önce bağlantı adresine ihtiyacımız var. Bunun için;
+
+Project --->  Add New Data Source  ---> Database ---> Dataset ---> New Connection ---> MicrosoftSQLServer
+Server Name ---> (SQLdeki kullanıcı adını kopyalayıp yapıştırdık.)
+DbVisit 
+Show the connection string that you will save in the application.
+Data Source=DESKTOP-............. kopyaladık.
+Cancel
+
+
+
+35)  VERİLERİN LİSTELENMESİ
+
+            SqlConnection connection = new SqlConnection("Data Source=DESKTOP-HJ161GJ\\SQLEXPRESS;Initial Catalog=DbVisit;Integrated Security=True;Encrypt=False");
+            connection.Open();
+            SqlCommand command = new SqlCommand("Select * from TblPerson", connection);
+            //DataTable dt = new DataTable();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                Console.WriteLine( reader[0]+ " | " + reader[1]+ " | " + reader[2]);
+                Console.WriteLine("--------------------------------------------------")
+            }
+            connection.Close();
+
+            Console.ReadLine();
+
+1 | Ali Yıldız | Ankara
+-------------------------------------------
+2 | Eylül Yücedağ | Adana
+-------------------------------------------
+3 | Meltem Çınar | Ankara
+-------------------------------------------
+4 | Ahmet Sarılı | Artvin
+-------------------------------------------
+5 | Ayşe Öztürk | Sakarya
+-------------------------------------------
+7 | Aslı | Kütahya
+-------------------------------------------
+
+
+36)  C# ile SQL'e VERİ EKLEME  (Visual Studio)
+
+void Listele()
+{
+    connection.Open();
+    SqlCommand command = new SqlCommand("Select * from TblPerson", connection);
+    //DataTable dt = new DataTable();
+    SqlDataReader reader = command.ExecuteReader();
+    while (reader.Read())
+    {
+        Console.WriteLine(reader[0] + " | " + reader[1] + " | " + reader[2]);
+        Console.WriteLine("-------------------------------------------");
+    }
+    connection.Close();
+}
+
+
+//Ekleme İşlemi
+
+connection.Open();
+SqlCommand command2 = new SqlCommand("Insert into TblPerson (Name, City) values (@p1,@p2)", connection);
+command2.Parameters.AddWithValue("@p1", "Mesut Kaya");
+command2.Parameters.AddWithValue("@p2", "Elazığ");
+command2.ExecuteNonQuery();
+connection.Close();
+
+Listele();
+
+Console.ReadLine(); 
+
+
+1 | Ali Yıldız | Ankara
+-------------------------------------------
+2 | Eylül Yücedağ | Adana
+-------------------------------------------
+3 | Meltem Çınar | Ankara
+-------------------------------------------
+4 | Ahmet Sarılı | Artvin
+-------------------------------------------
+5 | Ayşe Öztürk | Sakarya
+-------------------------------------------
+7 | Aslı | Kütahya
+-------------------------------------------
+8 | Mesut Kaya | Elazığ
+-------------------------------------------
+
+37)  SİLME VE GÜNCELLEME  (Visual Studio)
+
+
+//Silme İşlemi
+
+connection.Open();
+SqlCommand command3 = new SqlCommand("Delete from TblPerson where Id=@p1", connection);
+command3.Parameters.AddWithValue("@p1", 8);
+command3.ExecuteNonQuery();
+connection.Close();
+
+Listele();
+
+Console.ReadLine(); 
+
+
+1 | Ali Yıldız | Ankara
+-------------------------------------------
+2 | Eylül Yücedağ | Adana
+-------------------------------------------
+3 | Meltem Çınar | Ankara
+-------------------------------------------
+4 | Ahmet Sarılı | Artvin
+-------------------------------------------
+5 | Ayşe Öztürk | Sakarya
+-------------------------------------------
+7 | Aslı | Kütahya
+-------------------------------------------
+
+
+
+//Güncelleme İşlemi
+connection.Open();
+SqlCommand command4 = new SqlCommand("Update TblPerson set Name=@p1, City=@p2 where Id=@p3", connection);
+command4.Parameters.AddWithValue("@p1", "Veli Bulut");
+command4.Parameters.AddWithValue("@p2", "Kayseri");
+command4.Parameters.AddWithValue("@p3", 1);
+command4.ExecuteNonQuery();
+connection.Close();
+
+Listele();
+
+Console.ReadLine(); 
+
+
+1 | Veli Bulut | Kayseri
+-------------------------------------------
+2 | Eylül Yücedağ | Adana
+-------------------------------------------
+3 | Meltem Çınar | Ankara
+-------------------------------------------
+4 | Ahmet Sarılı | Artvin
+-------------------------------------------
+5 | Ayşe Öztürk | Sakarya
+-------------------------------------------
+7 | Aslı | Kütahya
+-------------------------------------------
+
+
+38)  EKLEME İŞLEMİNDE PARAMETRE KULLANIMI  (Visual Studio)
+ 
+            string name, city;
+            Console.WriteLine("****************");
+            Console.WriteLine();
+            Console.Write("Kişi Adı:");
+            name = Console.ReadLine();
+            Console.WriteLine();
+            Console.Write("Şehir:");
+            city = Console.ReadLine();
+            Console.WriteLine();
+            Console.WriteLine("Kişi sisteme başarılı bir şekilde eklendi.");
+            Console.WriteLine();
+            Console.WriteLine("****************");
+            
+            connection.Open();
+            SqlCommand command5 = new SqlCommand("Insert into TblPerson (Name, City) values (@p1,@p2)", connection);
+            command5.Parameters.AddWithValue("@p1", name);
+            command5.Parameters.AddWithValue("@p2", city);
+            command5.ExecuteNonQuery();
+            connection.Close();
+
+            Listele();
+
+            Console.ReadLine(); 
+
+
+
+****************
+
+Kişi Adı:Meltem Meşe
+
+Şehir:Antalya
+
+Kişi sisteme başarılı bir şekilde eklendi.
+
+****************
+1 | Veli Bulut | Kayseri
+-------------------------------------------
+2 | Eylül Yücedağ | Adana
+-------------------------------------------
+3 | Meltem Çınar | Ankara
+-------------------------------------------
+4 | Ahmet Sarılı | Artvin
+-------------------------------------------
+5 | Ayşe Öztürk | Sakarya
+-------------------------------------------
+7 | Aslı | Kütahya
+-------------------------------------------
+9 | Meltem Meşe | Antalya
+-------------------------------------------
+
+
+
+
+39)  ARAMA İŞLEMİ  (Visual Studio)
+
+
+            //Arama İşlemi
+            Console.WriteLine("*************************");
+            Console.WriteLine();
+            Console.Write("Aranacak şehri giriniz:");
+            string city = Console.ReadLine();
+            Console.WriteLine();
+            Console.WriteLine("*************************");
+            Console.WriteLine();
+            connection.Open();
+            SqlCommand command6 = new SqlCommand("Select * from TblPerson where City=@p1", connection);
+            command6.Parameters.AddWithValue("@p1", city);
+            SqlDataReader reader2=command6.ExecuteReader();
+            while (reader2.Read())
+            {
+                Console.WriteLine(reader2[0] + " | " + reader2[1] + " | " + reader2[2]);
+                Console.WriteLine("-------------------------------------------");
+            }
+
+            connection.Close();
+           
+            
+            Console.ReadLine(); 
+
+
+
+*************************
+
+Aranacak şehri giriniz:Ankara
+
+*************************
+
+3 | Meltem Çınar | Ankara
+-------------------------------------------
+
+
+40)  İSTATİSTİKLERİ CONSOLEDA GÖSTERME (Visual Studio)
+
+            connection.Open();
+            SqlCommand command7 = new SqlCommand("Select count(*) from TblPerson", connection);
+            SqlDataReader reader3 = command7.ExecuteReader();
+            while (reader3.Read())
+            {
+                Console.WriteLine("Toplam Personel Sayısı: " + reader3[0]);
+            }
+
+            connection.Close();
+
+            Console.ReadLine(); 
+
+Toplam Personel Sayısı: 7
+
+
+
+
+            connection.Open();
+            SqlCommand command7 = new SqlCommand("Select count(*) from TblPerson", connection);
+            SqlDataReader reader3 = command7.ExecuteReader();
+            while (reader3.Read())
+            {
+                Console.WriteLine("Toplam Personel Sayısı: " + reader3[0]);
+            }
+            connection.Close();
+
+            connection.Open();
+
+            SqlCommand command8 = new SqlCommand("Select Avg(Price) from TblFlight", connection);
+            SqlDataReader reader4 = command8.ExecuteReader();
+            while (reader4.Read())
+            {
+                Console.WriteLine("Ortalama Uçuş Fiyatı : " + reader4[0]);
+            }
+
+
+            connection.Close();
+
+            Console.ReadLine(); 
+
+
+Toplam Personel Sayısı: 7
+Ortalama Uçuş Fiyatı : 934,000000
+
+
+
+41)  GRUPLANDIRMA (SQL)
+
+Select City,COUNT(*) from TblPerson group by City  
+(Her bir şehirde kaç kişi olduğunu gösterdi.)
+
+            connection.Open();
+            SqlCommand command9 = new SqlCommand("Select City, Count(*) from TblPerson Group By City ", connection);
+            SqlDataReader reader5 = command9.ExecuteReader();
+            while (reader5.Read())
+            {
+                Console.WriteLine(reader5[0] + " | " + reader5[1]);
+                Console.WriteLine("-------------------------------------------");
+            }
+
+            connection.Close();
+
+            Console.ReadLine();
+
+
+Adana | 1
+-------------------------------------------
+Ankara | 1
+-------------------------------------------
+Antalya | 1
+-------------------------------------------
+Artvin | 1
+-------------------------------------------
+Kayseri | 1
+-------------------------------------------
+Kütahya | 1
+-------------------------------------------
+Sakarya | 1
+-------------------------------------------
+
+
+42)  INNER JOIN KULLANIMI
+
+            Select FlightID as 'Uçuş ID',
+            s.CountryCapital as 'Kalkış', 
+            x.CountryCapital as 'Varış', 
+            Price as 'Fiyat' ,
+            Capacity as 'Kapasite',
+            FlightDate as 'Uçuş Tarihi' 
+            
+            From TblFlight p
+            
+            inner join TblCountry s
+            on p.DepartureLocation=s.CountryId
+            inner join TblCountry x
+            on p.ArrivalLocation=x.CountryId
+
+
+43)  INNER JOIN
+            
+            Select FlightID as 'Uçuş ID',
+            s.CountryCapital as 'Kalkış', 
+            x.CountryCapital as 'Varış', 
+            Price as 'Fiyat' ,
+            Capacity as 'Kapasite',
+            FlightDate as 'Uçuş Tarihi' 
+            
+            From TblFlight p
+            
+            inner join TblCountry s
+            on p.DepartureLocation=s.CountryId
+            inner join TblCountry x
+            on p.ArrivalLocation=x.CountryId
+
+
+44)  PROSEDÜRLER
+
+             Create Procedure FlightList
+            as
+            select FlightID as 'Uçuş ID',s.CountryCapital as 'Kalkış',x.CountryCapital as 'Varış',Price as 'Fiyat' ,Capacity as 'Kapasite',
+            FlightDate as 'Uçuş Tarihi' 
+            From TblFlight p
+            inner join TblCountry s
+            on p.DepartureLocation=s.CountryId
+            inner join TblCountry x
+            on p.ArrivalLocation=x.CountryId
+
+
+connection.Open();
+SqlCommand command11 = new SqlCommand("Select FlightID as 'Uçuş ID',s.CountryCapital as 'Kalkış',x.CountryCapital as 'Varış',Price as 'Fiyat' ,Capacity as 'Kapasite', FlightDate as 'Uçuş Tarihi' From TblFlight p inner join TblCountry s on p.DepartureLocation=s.CountryId inner join TblCountry x on p.ArrivalLocation=x.CountryId ", connection);
+SqlDataReader reader7 = command11.ExecuteReader();
+while (reader7.Read())
+{
+    Console.WriteLine(reader7[0] + " | " + reader7[1] + " | " + reader7[2] + " | " + reader7[3] + " | " + reader7[4] + " | " + reader7[5]);
+    Console.WriteLine("-------------------------------------------");
+}
+
+connection.Close();
+
+Console.ReadLine();
+
+
+Prosedürü VS de çalıştırmak için uzun sorguyu silip Execute FlightList yazıyoruz ;
+
+connection.Open();
+SqlCommand command11 = new SqlCommand("Execute FlightList ", connection);
+SqlDataReader reader7 = command11.ExecuteReader();
+while (reader7.Read())
+{
+    Console.WriteLine(reader7[0] + " | " + reader7[1] + " | " + reader7[2] + " | " + reader7[3] + " | " + reader7[4] + " | " + reader7[5]);
+    Console.WriteLine("-------------------------------------------");
+}
+
+connection.Close();
+
+Console.ReadLine();
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<  BÖLÜM 10 : ENTITY FRAMEWORK  >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+//adonet vs entity framework
+//code first vs dbfirst
+
+---------------------------------------------------------------------------------------------------------------------------------
+45)  ENTITY FRAMEWORK DBFIRST
+
+Console_Dersleri ---> Add Folder ---> Model
+
+Model ---> Add New Item ---> ADO.NET Entity Data Model (Model1)
+
+EF Designer from database ---> Next
+
+Save connection settings in App.Config as:   DbVisitEntities  ---> Next
+
+Entity Framework 6.x ---> Next
+
+Tables  (Burada TblCountry , TblFlight , TblPerson seçtik.)
+Views
+Stored Procedured and Functions
+
+Model Namespace: DbVisitModel 
+
+---> Finish  --->  Modelimiz geldi.
+
+---------------------------------------------------------------------------------------------------------------------------------
+46)  ENTITY FRAMEWORK ile LİSTELEME
+
+int olarak tuttuğumuz alanlar yine int ama sql de varchar olan alanlar stringe dönüştü.
+
+
+            DbVisitEntities db = new DbVisitEntities();
+            var values=db.TblPerson.ToList();
+            foreach (var item in values)
+            {
+                Console.WriteLine(item.Id+ "-" +item.Name + "-" + item.City );
+                Console.WriteLine("-------------------------------------------------");
+            }
+
+            Console.ReadLine();
+
+
+1-Veli Bulut-Kayseri
+-------------------------------------------------
+2-Eylül Yücedağ-Adana
+-------------------------------------------------
+3-Meltem Çınar-Ankara
+-------------------------------------------------
+4-Ahmet Sarılı-Artvin
+-------------------------------------------------
+5-Ayşe Öztürk-Sakarya
+-------------------------------------------------
+7-Aslı-Kütahya
+-------------------------------------------------
+9-Meltem Meşe-Antalya
+-------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+47)  ENTITY FRAMEWORK ile EKLEME
+
+
+
+
+48)  UPDATE MODEL FROM DATABASE
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+49)  ENTITY FRAMEWORK SİLME
+
+DbVisitEntities db = new DbVisitEntities();
+void listele()
+{ 
+    var values = db.TblCountry.ToList();
+    foreach (var item in values)
+    {
+    Console.WriteLine(item.CountryId + "-" + item.CountryName + "-" + item.CountryCapital);
+    Console.WriteLine("-------------------------------------------------");
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------
+
+ TblCountry t = new TblCountry();
+ var value=db.TblCountry.Find(5);
+ db.TblCountry.Remove(value);
+ db.SaveChanges();
+
+ listele();
+
+ Console.ReadLine();
+
+
+
+1-Türkiye-Ankara
+-------------------------------------------------
+2-Almanya-Berlin
+-------------------------------------------------
+3-Fransa-Paris
+-------------------------------------------------
+4-Makedonya-Üsküp
+-------------------------------------------------
+6-İtalya-Roma
+-------------------------------------------------
+7-İspanya-Madrid
+-------------------------------------------------
+
+
+            Console.WriteLine("Silinecek değeri girin:");
+            int countryCode = Convert.ToInt32(Console.ReadLine());
+
+
+            var value=db.TblCountry.Find(countryCode);
+            db.TblCountry.Remove(value);
+            db.SaveChanges();
+
+            listele();
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+50)  ENTITY FRAMEWORK UPDATE
+
+            //TblCountry t = new TblCountry();
+            //var value=db.TblCountry.Find(1);
+            //value.CountryName = "Belçika";
+            //value.CountryCapital = "Brüksel";
+            //db.SaveChanges();
+            //listele();
+            //Console.ReadLine();
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+51)  ENTITY FRAMEWORK WHERE
+
+            var values2 = db.TblCountry.Where(x => x.CountryName=="Türkiye").ToList();
+            foreach (var item in values2)
+            {
+                Console.WriteLine(item.CountryId + " " + item.CountryCapital);
+            }
+
+            Console.ReadLine();
+
+( 8 Ankara )
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+            Console.Write("Ülke adı:");
+            string country =Console.ReadLine();
+            var values2 = db.TblCountry.Where(x => x.CountryName == country).ToList();
+            foreach (var item in values2)
+            {
+                Console.WriteLine(item.CountryId + " " + item.CountryCapital);
+            }
+
+            Console.ReadLine();
+
+
+Ülke adı:Türkiye
+8 Ankara
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+            var values3=db.TblFlight.Where(x=>x.DepartureLocation==1).ToList();
+            foreach (var item in values3)
+            {
+                Console.WriteLine("ID: " +item.FlightID + "Fiyat: " + item.Price );
+            }
+
+            Console.ReadLine();
+
+
+ID: 1Fiyat: 860,00
+ID: 2Fiyat: 1100,00
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+            var values3=db.TblFlight.Where(x=>x.DepartureLocation==1 && x.Price<=1000).ToList();
+            foreach (var item in values3)
+            {
+                Console.WriteLine("ID: " +item.FlightID + "Fiyat: " + item.Price );
+            }
+
+            Console.ReadLine();
+
+
+ID: 1Fiyat: 860,00
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+            var values3=db.TblFlight.Where(x => x.DepartureLocation ==1 && x.Price <= 1000).ToList();
+            foreach (var item in values3)
+            {
+                Console.WriteLine( " ID : " + item.FlightID + " Nereden : " +  item.TblCountry.CountryCapital + " Fiyat : " + item.Price );
+            }
+
+            Console.ReadLine();
+
+
+ ID : 1 Nereden : Brüksel Fiyat : 860,00
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+52)  COUNT  AVG  SUM
+
+            var value=db.TblPerson.Count();
+            Console.WriteLine( "Toplam Kişi Sayısı:" + value);
+
+            Console.ReadLine();
+
+
+Toplam Kişi Sayısı:8
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+            var value = db.TblFlight.Average(x => x.Price);
+            Console.WriteLine("Ortalama Bilet Fiyatı:" + value);
+
+            Console.ReadLine();
+
+
+Ortalama Bilet Fiyatı:934,000000
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+            var value = db.TblFlight.Sum(x => x.Price);
+            Console.WriteLine("Toplam Bilet Fiyatı:" + value);
+
+            Console.ReadLine();
+
+
+Toplam Bilet Fiyatı:4670,00
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+            var value = db.TblFlight.Sum(x => x.Price*x.Capacity);
+            Console.WriteLine("Toplam Bilet Fiyatı:" + value);
+
+            Console.ReadLine();
+
+
+Toplam Bilet Fiyatı:21640,00
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+53)  ALT SORGU
+
+            var value = db.TblCountry.Where(x => x.CountryName == "İtalya").Select(y => y.CountryId).FirstOrDefault();
+            Console.WriteLine(value);
+
+            Console.ReadLine();
+
+6
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+            var value = db.TblCountry.Where(x => x.CountryName == "İtalya").Select(y => y.CountryId).FirstOrDefault();
+            
+            var value2 = db.TblFlight.Where(x => x.DepartureLocation == value).ToList();
+
+            foreach (var item in value2)
+            {
+                Console.Write(item.FlightID + " " + item.Price);
+            }
+            
+
+            Console.ReadLine();
+
+
+4   1100,00
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+             var value2 = db.TblFlight.Where(x => x.DepartureLocation == (db.TblCountry.Where(z => z.CountryName ==                               "İtalya").Select(y => y.CountryId).FirstOrDefault())).ToList();
+
+   foreach (var item in value2)
+{
+    Console.Write(item.FlightID + " " + item.Price);
+}
+
+
+Console.ReadLine();
+
+
+4   1100,00
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<  BÖLÜM 11 : CODE FIRST  >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+54)  CODE FIRST GİRİŞ
+
+VS ---> Create a New Project  ---> C#  All platforms Console ---> Console.App (.NET Framework)
+
+Project Name : Console_Dersleri_2  ---> Create
+
+ Console_Dersleri_2 ---> Add ---> New Folder --->  Entities 
+ 
+Entities ---> Add --> Class ---> Customer.cs
+
+internal class Customer
+{
+    [Key]    --->(using System.ComponentModel.DataAnnotations;)
+    public int CustomerID { get; set; }
+    public string CustomerName { get; set; }
+    public string CustomerCity { get; set; }
+}
+
+Entities ---> Add --> Class ---> Job.cs
+
+internal class Job
+{
+    [Key]
+    public int JobID { get; set; }
+    public string JobName { get; set; }
+}
+
+Console_Dersleri_2 ---> Add ---> New Folder --->  DAL
+
+DAL --> Add --> Class --> Context
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+55)  BAĞLANTI YAPILANDIRILMASI
+
+Console_Dersleri_2 ---> Manage NuGet Packages ---> EntityFramework ---> Install
+
+App.config dosyasını açtık. Yapılandırılma ayarları için kullanılır.
+
+</entityFramework>   satırının altına ;
+	<connectionStrings>
+<add name="Context" connectionString="data source=DESKTOP-HJ161GJ\SQLEXPRESS;initial catalog=DbVisit2;
+	 integrated security=true;"providerName="System.Data.SqlClient"/>
+	</connectionStrings>
+
+
+/* 
+DbFirst
+---> SQL'deki tablolar birer sınıfa, bu tablolar içinde yer alan sütunlar ise birer property'e dönüşüyor.
+Code First
+---> C#'daki sınıflar SQL'de birer tabloya, sınıflar içindeki proplar ise birer tablo sütununa dönüşüyor.
+s takısı 
+Sınıflar ve tablolar birbirine karışmasın diye
+Yalın halini sınıf
+Çoğul halini tablo
+job ---> class
+jobs ---> table
+*/
+
+
+internal class Context
+{
+    public DbSet<Customer> Customers { get; set; }
+    public DbSet<Job> Jobs { get; set; }
+}
+
+---------------------------------------------------------------------------------------------------------------------------------
+56)  MIGRATION İŞLEMİ
+
+View ---> Other Windows ---> Package Manager Console 
+
+ 
+PM> enable-migrations
+Checking if the context targets an existing database...
+
+Configuration;
+
+public Configuration()
+{
+          AutomaticMigrationsEnabled = false; 
+}
+otomatik olarak false geliyor onu true yapıyoruz.
+
+AutomaticMigrationsEnabled = true;
+
+Tekrar Package Manager Console ekranına yazıyoruz.
+
+PM> update-database
+Specify the '-Verbose' flag to view the SQL statements being applied to the target database.
+No pending explicit migrations.
+Applying automatic migration: 202503121446542_AutomaticMigration.
+Running Seed method.
+
+Şimdi SQLe geçtik. Database üzerinde refresh yapınca DbVisit2 gelmiş oldu. 
+Tablolarımıza veri girişleri yaptık.
+
+---------------------------------------------------------------------------------------------------------------------------------
+57)  SONRADAN MIGRATION EKLEME
+
+Entities ---> Add  --->  Class  ---> Employee.cs
+ 
+internal class Employee
+{
+    [Key]
+    public int EmployeeID { get; set; }
+    public string EmployeeName { get; set; }
+}
+
+
+Context.cs in içerisine geldik. Employee 'u da ekledik.
+
+    internal class Context: DbContext
+    {
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Job> Jobs { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+    }
+
+Package Manager Console ekranına;
+
+add-migration mig1  --> Enter
+
+update-database --> Enter
+
+SQL'e geldik, DbVisit2 --> refresh
+dbo.Employees tablosu gelmiş oldu.
+
+58)  CODE FIRST CRUD
+
+program.cs --->
+
+            Context c= new Context();
+            var values =c.Customers.ToList();
+            foreach (var item in values)
+            {
+                Console.WriteLine(item.CustomerName);
+            }
+
+            Console.ReadLine();
+
+Ali Çınar
+Mehmet Yıldız
+Veysel Kaya
+Ayşegül Öztürk
+Zehra Sarı
+
+
+            Context c = new Context();
+            var values = c.Customers.ToList();
+
+            void listele()
+            {
+                foreach (var item in values)
+                {
+                    Console.WriteLine(item.CustomerName);
+                }
+            } 
+            
+            //Customer customer = new Customer();
+            //customer.CustomerName = "Eylül Yücedağ";
+            //customer.CustomerCity = "Lviv";
+            //c.Customers.Add(customer);
+            //c.SaveChanges();
+            listele();
+
+            Console.ReadLine();
+        }
+
+Ali Çınar
+Mehmet Yıldız
+Veysel Kaya
+Ayşegül Öztürk
+Zehra Sarı
+Eylül Yücedağ
+
+            var values2 = c.Customers.Where(x => x.CustomerID == 4).FirstOrDefault();
+            c.Customers.Remove(values2);
+            c.SaveChanges();
+            Console.WriteLine("Silme işlemi başarılı");
+            Console.ReadLine();
+
+Silme işlemi başarılı
+
+SQL de Customers tablosundaki verilere baktığımızda 4 numaranın silindiğini gördük.
+
+            var values3 = c.Customers.Where(x => x.CustomerID == 3).FirstOrDefault();
+            values3.CustomerName = "Ahmet Karalı";
+            values3.CustomerCity = "İstanbul";
+            c.SaveChanges();
+            Console.Write("Güncelleme işlemi başarılı");
+
+            Console.ReadLine();
+
+Güncelleme işlemi başarılı
+
+SQL de Customers tablosundaki verilere baktığımızda 3 numaranın güncellendiğini gördük.
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<  BÖLÜM 12 : N KATMANLI MİMARİ  >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+N TIER ARCHITECTURE
+
+59)  MİMARİYE GİRİŞ
+
+VS ---> Create a New Project  --->  Console.App (.NET Framework)
+
+Project Name : Console_Dersleri_3  ---> Create
+
+N KATMANLI MİMARİ NEDEN KULLANILIR?
+1)  Kod tekrarı önlenir.
+2)  Projeye olan hakimiyet artar.
+3)  Clean Code ve Solide en yakın prensipler uygulanır.
+4)  Bağımlılıklar azaltılır.
+5)  Radikal değişimler kolaylaşır.
+6)  Revizeler daha kolay yapılır.
+
+Katmanların her biri ayrı bir proje yapısı olarak bizi karşılayacak.
+
+
+4 tane temel katman var:
+1) Entity Layer
+2) Data Access Layer
+3) Business Layer
+4) Presantation Layer (UI)
+
+
+Mimari yaklaşımı olarak Repository Design Pattern kullanacağız.
+
+Entity Framework Code First ile geliştirme yapacağız. 
+Hatalar için Fluent Validation kullanacağız.
+
+
+60)  KATMANLARIN OLUŞTURULMASI
+
+Entity Layer -->  Entities tabloların sınıf karşılığı
+
+Data Access Layer --> Veri erişim katmanımız, CRUD işlemleri oluşturulacak
+
+Business Layer  -->  Mantıksal şartların yer aldığı 
+
+Presantation Layer (UI)  -->  Uygylamanın sunum katmanı, işlemler yapılacak.
+
+
+Solution ---> Add ---> New Project   (C#  All Platforms  Library)
+
+Class Library (.NET Framework)  --> Next 
+
+Project name : EntityLayer  --> Create
+
+
+Solution ---> Add ---> New Project   (C#  All Platforms  Library)
+
+Class Library (.NET Framework)  --> Next 
+
+Project name : DataAccessLayer  --> Create
+
+
+Solution ---> Add ---> New Project   (C#  All Platforms  Library)
+
+Class Library (.NET Framework)  --> Next 
+
+Project name : BusinessLayer  --> Create
+
+
+61)  ENTITYLERİN YAZILMASI
+
+
+
+
+
+
+
+62)  PAKETLERİN KURULMASI
+
+
+
+63)  MIGRATION İŞLEMİ
+
+
+
+64)  INTERFACELERIN TANIMLANMASI
+
+DataAccessLayer ---> Add --> Folder --> Abstract
+
+Abstract ---> Add --> New Item ---> Interface  Name : IMember  (Başına I ekliyoruz.)
+
+    public interface IMember
+    {
+        void Insert(Member member);
+        void Update(Member member);
+        void Delete(Member member);
+        List<Member> GetList();
+        Member GetByID(int id);
+    }
+}
+
+
+public interface ILocationDal
+{
+    void Insert(Location location);
+    void Delete(Location location);
+    void Update(Location location);    
+    List<Location> GetList();
+    Location GetByID(int id);
+}
+
+
+
+
+65)  GENERIC INTERFACELER
+
+
+
+66)  GENERIC REPOSITORY
+
+
+
+67)  ENTITY FRAMEWORK KLASÖRÜ VE SINIFLARI
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<  BÖLÜM 13 : FLUENT VALIDATION  >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+68)  BUSINESS KATMANI
+
+BusinessLayer ---> Add --> New Folder ---> Abstract (Interfacelerin tutulacağı klasör)
+
+BusinessLayer ---> Add --> New Folder ---> Concrete
+
+BusinessLayer ---> Add --> New Folder ---> FluentValidation
+
+
+Abstract ---> Add ---> New Item ---> INTERFACE ---> name : IGenericService
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+69)  MANAGERLARIN YAZILMASI
+
+    public class LocationManager : ILocationService
+    {
+        ILocationDal _locationDal;
+        public void TDelete(Location t)
+        {
+            _locationDal.Delete(t);
+        }
+
+        public Location TGetById(int id)
+        {
+            return _locationDal.GetByID(id);
+        }
+
+        public List<Location> TGetList()
+        {
+            return _locationDal.GetList();
+        }
+
+        public void TInsert(Location t)
+        {
+            _locationDal.Insert(t);
+        }
+
+        public void TUpdate(Location t)
+        {
+            _locationDal.Update(t);
+        }
+    }
+}
+
+---------------------------------------------------------------------------------------------------------------------------------
+70)  FLUENT VALIDATION
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<  BÖLÜM 14 : N KATMANLI MİMARİ DEVAMI  >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+71)  PRESANTATION KATMANI CRUD İŞLEMİ
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+72)  MEMBER CRUD
+
+MemberManager memberManager = new MemberManager(new EfMemberDal());
+var values = memberManager.TGetList();
+foreach (var value in values) 
+    {
+        Console.WriteLine(value.MemberName + " " + value.MemberSurname);
+        Console.WriteLine("--------------------------");
+    }
+
+
+Console.ReadLine();
+
+
+
+Ali Çınar
+--------------------------
+Eylül Yücedağ
+--------------------------
+Ahmet Yıldız
+--------------------------
+Ayşenur Kara
+--------------------------
+Veysel Sarı
+--------------------------
+Mehmet Öztürk
+--------------------------
+Zeynep Tunç
+--------------------------
+Buse Yıldız
+--------------------------
+
+
+
+
+
+Member member=new Member();
+member.MemberName = "a";
+member.MemberSurname = "b";
+memberManager.TInsert(member);
+Console.WriteLine("Ekleme yapıldı");
+
+
+Console.ReadLine();
+
+
+SQLde tabloda da ekleme yapılmış oldu.
+
+
+var valueMember = memberManager.TGetById(9);
+memberManager.TDelete(valueMember);
+Console.WriteLine("işlem yapıldı");
+
+Console.ReadLine();
+
+
+9 ID ye ait veri silindi.
+
+
+var valueMember = memberManager.TGetById(8);
+ valueMember.MemberName = "Aslı";
+ valueMember.MemberSurname = "Meşe";
+ memberManager.TUpdate(valueMember);
+ Console.WriteLine("İşlem yapıldı");
+
+ Console.ReadLine();
+
+
+8 ID ye ait veri değiştirildi.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+73)  COMMENT LIST
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+74)  ENTITY FRAMEWORK JOIN
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+75)  3 TABLODA JOIN
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+76)  METODUN MİMARİYE TAŞINMASI
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+77)  FLUENT VALIDATION KONTROLÜ
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
